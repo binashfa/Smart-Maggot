@@ -4,16 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class SensorData extends Model
+class SensorLog extends Model
 {
     protected $table = 'sensor_data';
 
     protected $fillable = [
         'device_id',
-        'temperature',
-        'humidity',
-        'status',
-        'recommendation'
+        'suhu',
+        'kelembapan'
     ];
 
     public function device()

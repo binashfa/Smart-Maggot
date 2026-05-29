@@ -2,28 +2,26 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Device;
-use App\Models\SensorData;
+use Illuminate\Support\Facades\Auth;
+use App\Models\SensorLog;
 
 class DashboardController extends Controller
 {
     public function index()
     {
-        $latestSensor = SensorData::latest()->first();
+        $role = Auth::user()->role;
 
-        $totalDevices = Device::count();
+        // ambil data sensor terbaru
+        $latest = SensorLog::latest()->first();
 
-        $onlineDevices = Device::where('status', 'online')->count();
+        if ($role == 'superadmin') {
+            return view('superadmin.dashboard', compact('latest'));
+        }
 
-        $latestData = SensorData::latest()
-                        ->take(5)
-                        ->get();
+        if ($role == 'operator') {
+            return view('operator.dashboard', compact('latest'));
+        }
 
-        return view('dashboard.index', compact(
-            'latestSensor',
-            'totalDevices',
-            'onlineDevices',
-            'latestData'
-        ));
+        return view('user.dashboard', compact('latest'));
     }
 }
