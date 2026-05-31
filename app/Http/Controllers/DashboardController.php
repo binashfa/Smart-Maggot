@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Auth;
 use App\Models\SensorLog;
+<<<<<<< HEAD
 use App\Models\DeviceCommand;
+=======
+>>>>>>> ff9573274746a1751750b181641e03c82211e918
 
 class DashboardController extends Controller
 {
@@ -12,6 +15,7 @@ class DashboardController extends Controller
     {
         $role = Auth::user()->role;
 
+<<<<<<< HEAD
         $latest = SensorLog::with('device')->latest()->first();
 
         $online = false;
@@ -39,5 +43,19 @@ class DashboardController extends Controller
         }
 
         return view('user.dashboard', compact('latest', 'online', 'chartData', 'command'));
+=======
+        // ambil data sensor terbaru
+        $latest = SensorLog::latest()->first();
+
+        if ($role == 'superadmin') {
+            return view('superadmin.dashboard', compact('latest'));
+        }
+
+        if ($role == 'operator') {
+            return view('operator.dashboard', compact('latest'));
+        }
+
+        return view('user.dashboard', compact('latest'));
+>>>>>>> ff9573274746a1751750b181641e03c82211e918
     }
 }
