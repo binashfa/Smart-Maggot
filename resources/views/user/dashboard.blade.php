@@ -1,0 +1,9 @@
+@extends('layouts.user')
+
+@section('content')
+
+<h1 class="text-3xl font-bold">
+    Dashboard User
+</h1>
+
+@endsection
