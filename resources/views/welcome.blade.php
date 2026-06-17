@@ -24,9 +24,12 @@
         }
 
         @keyframes float {
-            0%, 100% {
+
+            0%,
+            100% {
                 transform: translateY(0px);
             }
+
             50% {
                 transform: translateY(-20px);
             }
@@ -41,6 +44,7 @@
                 opacity: 0;
                 transform: translateY(40px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -92,6 +96,7 @@
                 opacity: 0;
                 transform: translateX(-30px);
             }
+
             to {
                 opacity: 1;
                 transform: translateX(0);
@@ -262,23 +267,174 @@
         </div>
     </section>
 
-    <!-- Quiz Call to Action -->
-    <section class="py-24 bg-white">
-        <div class="max-w-4xl mx-auto text-center px-6">
-            <h2 data-aos="fade-up" class="text-5xl font-black text-[#12557B] mb-6">
-                Uji Pengetahuanmu tentang SmartMaggot
-            </h2>
+    <!-- Learning Section -->
+    <section class="py-24 bg-gradient-to-b from-[#F8FCFF] to-white relative overflow-hidden">
 
-            <p data-aos="fade-up" data-aos-delay="100" class="text-gray-600 text-lg mb-10">
-                Ikuti quiz interaktif kami dengan 10 pertanyaan menarik tentang penggunaan dan manfaat SmartMaggot untuk budidaya maggot.
-            </p>
+        <!-- Background Decoration -->
+        <div class="absolute top-0 left-0 w-72 h-72 bg-blue-100 rounded-full blur-3xl opacity-40"></div>
+        <div class="absolute bottom-0 right-0 w-96 h-96 bg-cyan-100 rounded-full blur-3xl opacity-40"></div>
 
-            <button onclick="document.getElementById('quizModal').classList.remove('hidden')" 
-                class="btn-primary text-white px-12 py-5 rounded-full font-bold text-lg shadow-lg">
-                Mulai Quiz Sekarang
-            </button>
+        <div class="max-w-5xl mx-auto px-6 relative z-10">
+
+            <div class="bg-white rounded-[32px] shadow-xl border border-slate-100 p-10 lg:p-16">
+
+                <!-- Badge -->
+                <div class="flex justify-center mb-6">
+                    <span
+                        class="bg-[#12557B]/10 text-[#12557B] px-5 py-2 rounded-full text-sm font-bold tracking-wide">
+                        MODUL PEMBELAJARAN
+                    </span>
+                </div>
+
+                <!-- Icon -->
+                <div class="flex justify-center mb-8">
+                    <div
+                        class="w-24 h-24 rounded-full bg-gradient-to-br from-[#12557B] to-[#0F7A8C] flex items-center justify-center shadow-lg">
+
+                        <i class="fas fa-book-open text-white text-4xl"></i>
+
+                    </div>
+                </div>
+
+                <!-- Title -->
+                <h2
+                    class="text-4xl lg:text-6xl font-black text-[#12557B] text-center leading-tight mb-6">
+                    Belajar Maggot &
+                    <span class="text-[#0F7A8C]">
+                        SmartMaggot
+                    </span>
+                </h2>
+
+                <!-- Description -->
+                <p
+                    class="text-gray-600 text-lg lg:text-xl text-center max-w-3xl mx-auto leading-relaxed mb-12">
+                    Pelajari terlebih dahulu dasar-dasar budidaya maggot,
+                    manfaatnya bagi lingkungan, serta bagaimana
+                    <strong>SmartMaggot</strong> membantu proses monitoring
+                    secara otomatis menggunakan teknologi IoT.
+                </p>
+
+                <!-- Features -->
+                <div class="grid md:grid-cols-3 gap-5 mb-12">
+
+                    <div
+                        class="bg-slate-50 rounded-2xl p-5 text-center border border-slate-100">
+
+                        <i class="fas fa-graduation-cap text-3xl text-[#12557B] mb-3"></i>
+
+                        <h4 class="font-bold text-[#12557B]">
+                            Materi Dasar
+                        </h4>
+
+                        <p class="text-sm text-gray-500 mt-2">
+                            Kenali konsep dasar budidaya maggot.
+                        </p>
+                    </div>
+
+                    <div
+                        class="bg-slate-50 rounded-2xl p-5 text-center border border-slate-100">
+
+                        <i class="fas fa-lightbulb text-3xl text-yellow-500 mb-3"></i>
+
+                        <h4 class="font-bold text-[#12557B]">
+                            Solusi SmartMaggot
+                        </h4>
+
+                        <p class="text-sm text-gray-500 mt-2">
+                            Pahami manfaat teknologi IoT dalam budidaya.
+                        </p>
+                    </div>
+
+                    <div
+                        class="bg-slate-50 rounded-2xl p-5 text-center border border-slate-100">
+
+                        <i class="fas fa-award text-3xl text-green-500 mb-3"></i>
+
+                        <h4 class="font-bold text-[#12557B]">
+                            Quiz Interaktif
+                        </h4>
+
+                        <p class="text-sm text-gray-500 mt-2">
+                            Uji pemahamanmu setelah belajar.
+                        </p>
+                    </div>
+
+                </div>
+
+                <!-- Button -->
+                <div class="text-center">
+
+                    <button
+                        onclick="document.getElementById('moduleModal').classList.remove('hidden')"
+                        class="group bg-gradient-to-r from-[#12557B] to-[#0F7A8C] hover:scale-105 transition duration-300 text-white px-12 py-5 rounded-full font-bold text-lg shadow-xl">
+
+                        <i class="fas fa-book-reader mr-2"></i>
+                        Mulai Belajar
+
+                    </button>
+
+                </div>
+
+            </div>
+
         </div>
+
     </section>
+
+    <!-- Learning Module Modal -->
+    <div id="moduleModal"
+        class="hidden fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
+
+        <div class="bg-white rounded-3xl p-10 max-w-3xl w-full shadow-2xl">
+
+            <button
+                onclick="document.getElementById('moduleModal').classList.add('hidden')"
+                class="absolute top-5 right-5 w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 hover:bg-red-100 text-gray-500 hover:text-red-500 transition">
+
+                <i class="fas fa-times"></i>
+
+            </button>
+
+            <!-- Progress -->
+            <div class="mb-8">
+                <div class="flex justify-between items-center mb-2">
+                    <span class="font-bold text-[#12557B]">Modul Pembelajaran</span>
+                    <span id="modulePage" class="text-sm text-gray-500">1 / 7</span>
+                </div>
+
+                <div class="w-full h-3 bg-gray-200 rounded-full overflow-hidden">
+                    <div id="moduleProgress"
+                        class="h-full bg-gradient-to-r from-[#12557B] to-[#0F7A8C]"
+                        style="width:14%">
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <div class="text-6xl mb-6" id="moduleIcon">🐛</div>
+
+                <h2 id="moduleTitle"
+                    class="text-4xl font-black text-[#12557B] mb-6">
+                </h2>
+
+                <p id="moduleContent"
+                    class="text-lg text-gray-700 leading-relaxed min-h-[180px]">
+                </p>
+            </div>
+
+            <div class="flex justify-between mt-10">
+                <button id="prevModule"
+                    class="px-6 py-3 rounded-full border border-gray-300 text-gray-600 hidden">
+                    Sebelumnya
+                </button>
+
+                <button id="nextModule"
+                    class="btn-primary text-white px-8 py-3 rounded-full ml-auto">
+                    Selanjutnya
+                </button>
+            </div>
+        </div>
+    </div>
 
     <!-- Quiz Modal -->
     <div id="quizModal" class="hidden fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
@@ -290,7 +446,7 @@
             <ul class="space-y-4 text-gray-700 mb-10">
                 <li class="flex items-center gap-3">
                     <span class="text-2xl text-blue-500"><i class="fas fa-list"></i></span>
-                    <span class="font-semibold">30 Pertanyaan</span>
+                    <span class="font-semibold">10 Pertanyaan</span>
                 </li>
                 <li class="flex items-center gap-3">
                     <span class="text-2xl text-orange-500"><i class="fas fa-hourglass-end"></i></span>
@@ -298,7 +454,7 @@
                 </li>
                 <li class="flex items-center gap-3">
                     <span class="text-2xl text-yellow-500"><i class="fas fa-star"></i></span>
-                    <span class="font-semibold">Maksimal skor 300</span>
+                    <span class="font-semibold">Maksimal skor 100</span>
                 </li>
                 <li class="flex items-center gap-3">
                     <span class="text-2xl text-purple-500"><i class="fas fa-brain"></i></span>
@@ -310,7 +466,7 @@
                 Mulai Quiz
             </button>
 
-            <button onclick="document.getElementById('quizModal').classList.add('hidden')" 
+            <button onclick="document.getElementById('quizModal').classList.add('hidden')"
                 class="w-full mt-3 py-3 rounded-full font-bold text-gray-600 hover:bg-gray-100 transition">
                 Batal
             </button>
@@ -368,296 +524,438 @@
     <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 
     <script>
+        const modules = [{
+                icon: '<img src="/images/maggot.png" class="w-20 h-20 mx-auto">',
+                title: "Apa Itu Maggot?",
+                content: `
+    Maggot adalah larva dari lalat Black Soldier Fly (BSF).
+    Maggot mampu menguraikan sampah organik dan mengubahnya menjadi
+    sumber protein tinggi yang dapat dimanfaatkan sebagai pakan ternak
+    maupun ikan.
+    `
+            },
+            {
+                icon: '<i class="fas fa-recycle text-green-600"></i>',
+                title: "Manfaat Maggot",
+                content: `
+    Maggot membantu mengurangi limbah organik, menghasilkan pakan
+    berkualitas tinggi, ramah lingkungan, dan memiliki nilai ekonomi
+    yang cukup besar bagi peternak.
+    `
+            },
+            {
+                icon: '<i class="fas fa-temperature-half text-red-500"></i>',
+                title: "Kondisi Ideal Budidaya",
+                content: `
+    Maggot tumbuh optimal pada suhu 25-30°C dan kelembaban
+    60-70%. Jika kondisi terlalu panas atau terlalu kering,
+    pertumbuhan maggot dapat terganggu.
+    `
+            },
+            {
+                icon: '<i class="fas fa-triangle-exclamation text-yellow-500"></i>',
+                title: "Permasalahan Budidaya",
+                content: `
+    Banyak peternak masih melakukan monitoring secara manual.
+    Akibatnya perubahan suhu dan kelembaban sering terlambat
+    diketahui sehingga mempengaruhi pertumbuhan maggot.
+    `
+            },
+            {
+                icon: '<i class="fas fa-mobile-screen-button text-blue-500"></i>',
+                title: "Apa Itu SmartMaggot?",
+                content: `
+    SmartMaggot adalah sistem berbasis Internet of Things (IoT)
+    yang dapat memantau kondisi kandang maggot secara realtime
+    melalui dashboard digital.
+    `
+            },
+            {
+                icon: '<i class="fas fa-rocket text-purple-500"></i>',
+                title: "Mengapa SmartMaggot Dibuat?",
+                content: `
+    SmartMaggot dibuat untuk membantu peternak melakukan monitoring
+    otomatis, mendeteksi masalah lebih cepat, dan menjaga kondisi
+    kandang tetap optimal.
+    `
+            },
+            {
+                icon: '<i class="fas fa-chart-line text-cyan-500"></i>',
+                title: "Fitur SmartMaggot",
+                content: `
+    SmartMaggot memiliki fitur monitoring suhu, monitoring
+    kelembaban, notifikasi otomatis, dashboard interaktif,
+    serta kontrol perangkat secara otomatis.
+    `
+            }
+        ];
+
+
+        let currentModule = 0;
+
+        function showModule(index) {
+            document.getElementById("moduleIcon").innerHTML =
+                modules[index].icon;
+
+            document.getElementById("moduleTitle").innerHTML =
+                modules[index].title;
+
+            document.getElementById("moduleContent").innerHTML =
+                modules[index].content;
+
+            document.getElementById("modulePage").innerHTML =
+                `${index + 1} / ${modules.length}`;
+
+            document.getElementById("moduleProgress").style.width =
+                `${((index + 1) / modules.length) * 100}%`;
+
+            document.getElementById("prevModule").classList.toggle(
+                "hidden",
+                index === 0
+            );
+
+            if (index === modules.length - 1) {
+                document.getElementById("nextModule").innerHTML =
+                    "Mulai Quiz";
+            } else {
+                document.getElementById("nextModule").innerHTML =
+                    "Selanjutnya";
+            }
+        }
+
+        document.querySelector('[onclick*="moduleModal"]').addEventListener("click", () => {
+            currentModule = 0;
+            showModule(currentModule);
+        });
+
+        document.getElementById("prevModule").addEventListener("click", () => {
+            currentModule--;
+            showModule(currentModule);
+        });
+
+        document.getElementById("nextModule").addEventListener("click", () => {
+
+            if (currentModule < modules.length - 1) {
+                currentModule++;
+                showModule(currentModule);
+            } else {
+                document.getElementById("moduleModal")
+                    .classList.add("hidden");
+
+                document.getElementById("quizModal")
+                    .classList.remove("hidden");
+            }
+        });
+
+
         // Quiz Data - 30 Pertanyaan tentang Penggunaan SmartMaggot
-        const allQuestions = [
-            // Monitoring & Sensor
-            {
-                question: "Apa fungsi utama dari sensor DHT22 dalam SmartMaggot?",
-                answers: [
-                    { text: "Mengukur berat media maggot", score: 0 },
-                    { text: "Mengukur suhu dan kelembaban udara", score: 10 },
-                    { text: "Mendeteksi kehadiran maggot", score: 0 },
-                    { text: "Mengukur pH media", score: 0 }
+        const allQuestions = [{
+                question: "Apa yang dimaksud dengan maggot?",
+                answers: [{
+                        text: "Larva dari lalat BSF",
+                        score: 10
+                    },
+                    {
+                        text: "Jenis cacing tanah",
+                        score: 0
+                    },
+                    {
+                        text: "Bibit tanaman",
+                        score: 0
+                    },
+                    {
+                        text: "Pakan ikan buatan",
+                        score: 0
+                    }
                 ]
             },
             {
-                question: "Berapa frekuensi pembaruan data sensor dalam sistem SmartMaggot?",
-                answers: [
-                    { text: "Setiap 30 menit", score: 0 },
-                    { text: "Realtime / setiap detik", score: 10 },
-                    { text: "Setiap jam", score: 0 },
-                    { text: "Setiap hari", score: 0 }
+                question: "Salah satu manfaat utama maggot adalah...",
+                answers: [{
+                        text: "Menghasilkan sampah organik",
+                        score: 0
+                    },
+                    {
+                        text: "Mengurangi limbah organik",
+                        score: 10
+                    },
+                    {
+                        text: "Membunuh tanaman",
+                        score: 0
+                    },
+                    {
+                        text: "Meningkatkan polusi",
+                        score: 0
+                    }
                 ]
             },
             {
-                question: "Apa keuntungan monitoring realtime dalam budidaya maggot?",
-                answers: [
-                    { text: "Mengurangi biaya operasional", score: 10 },
-                    { text: "Memudahkan pemanenan", score: 0 },
-                    { text: "Mempercepat pertumbuhan maggot", score: 0 },
-                    { text: "Tidak ada keuntungan khusus", score: 0 }
+                question: "Maggot berasal dari siklus hidup...",
+                answers: [{
+                        text: "Ayam",
+                        score: 0
+                    },
+                    {
+                        text: "Ikan",
+                        score: 0
+                    },
+                    {
+                        text: "Lalat Black Soldier Fly",
+                        score: 10
+                    },
+                    {
+                        text: "Belalang",
+                        score: 0
+                    }
                 ]
             },
             {
-                question: "Sensor apa yang digunakan untuk mengukur kelembaban media maggot?",
-                answers: [
-                    { text: "DHT22", score: 0 },
-                    { text: "Soil Moisture Sensor", score: 10 },
-                    { text: "Light Sensor", score: 0 },
-                    { text: "Motion Sensor", score: 0 }
+                question: "Suhu yang ideal untuk pertumbuhan maggot adalah...",
+                answers: [{
+                        text: "10-15°C",
+                        score: 0
+                    },
+                    {
+                        text: "15-20°C",
+                        score: 0
+                    },
+                    {
+                        text: "25-30°C",
+                        score: 10
+                    },
+                    {
+                        text: "40-45°C",
+                        score: 0
+                    }
                 ]
             },
             {
-                question: "Pada suhu berapa maggot tumbuh paling optimal?",
-                answers: [
-                    { text: "15-20°C", score: 0 },
-                    { text: "25-30°C", score: 10 },
-                    { text: "35-40°C", score: 0 },
-                    { text: "10-15°C", score: 0 }
-                ]
-            },
-
-            // Kontrol Otomatis
-            {
-                question: "Apa perbedaan antara mode AUTO dan MANUAL dalam SmartMaggot?",
-                answers: [
-                    { text: "AUTO: Pengguna mengontrol, MANUAL: Sensor mengontrol", score: 0 },
-                    { text: "AUTO: Sensor mengontrol, MANUAL: Pengguna mengontrol", score: 10 },
-                    { text: "Tidak ada perbedaan", score: 0 },
-                    { text: "AUTO lebih cepat dari MANUAL", score: 0 }
-                ]
-            },
-            {
-                question: "Kapan kipas otomatis akan menyala dalam mode AUTO?",
-                answers: [
-                    { text: "Ketika suhu melebihi nilai yang ditentukan", score: 10 },
-                    { text: "Setiap jam", score: 0 },
-                    { text: "Ketika ada orang di dekat kandang", score: 0 },
-                    { text: "Setiap hari pukul 12 siang", score: 0 }
+                question: "Kelembaban yang baik untuk budidaya maggot adalah...",
+                answers: [{
+                        text: "20-30%",
+                        score: 0
+                    },
+                    {
+                        text: "40-50%",
+                        score: 0
+                    },
+                    {
+                        text: "60-70%",
+                        score: 10
+                    },
+                    {
+                        text: "90-100%",
+                        score: 0
+                    }
                 ]
             },
             {
-                question: "Apa tujuan otomasi dalam sistem SmartMaggot?",
-                answers: [
-                    { text: "Menghemat tenaga kerja dan menjaga kondisi optimal", score: 10 },
-                    { text: "Membuat maggot tumbuh lebih cepat", score: 0 },
-                    { text: "Mengurangi biaya perangkat", score: 0 },
-                    { text: "Menambah estetika kandang", score: 0 }
+                question: "Apa yang dapat terjadi jika suhu kandang terlalu tinggi?",
+                answers: [{
+                        text: "Maggot menjadi lebih sehat",
+                        score: 0
+                    },
+                    {
+                        text: "Maggot dapat stres atau mati",
+                        score: 10
+                    },
+                    {
+                        text: "Tidak berpengaruh",
+                        score: 0
+                    },
+                    {
+                        text: "Maggot bertelur",
+                        score: 0
+                    }
                 ]
             },
             {
-                question: "Berapa kelembaban ideal media untuk pertumbuhan maggot?",
-                answers: [
-                    { text: "30-40%", score: 0 },
-                    { text: "60-70%", score: 10 },
-                    { text: "80-90%", score: 0 },
-                    { text: "20-30%", score: 0 }
+                question: "Apa tujuan utama budidaya maggot?",
+                answers: [{
+                        text: "Menghasilkan sumber protein dan mengolah limbah",
+                        score: 10
+                    },
+                    {
+                        text: "Menghasilkan plastik",
+                        score: 0
+                    },
+                    {
+                        text: "Membuat pupuk kimia",
+                        score: 0
+                    },
+                    {
+                        text: "Membuat bahan bakar",
+                        score: 0
+                    }
                 ]
             },
             {
-                question: "Apa yang terjadi jika suhu kandang terlalu tinggi untuk maggot?",
-                answers: [
-                    { text: "Maggot bertumbuh lebih cepat", score: 0 },
-                    { text: "Maggot dapat mati atau stres", score: 10 },
-                    { text: "Tidak ada pengaruh", score: 0 },
-                    { text: "Maggot menjadi lebih sehat", score: 0 }
-                ]
-            },
-
-            // Dashboard & Analytics
-            {
-                question: "Informasi apa saja yang dapat dilihat di dashboard SmartMaggot?",
-                answers: [
-                    { text: "Hanya suhu saja", score: 0 },
-                    { text: "Suhu, kelembaban, status kipas, dan grafik historis", score: 10 },
-                    { text: "Hanya status kipas", score: 0 },
-                    { text: "Tidak ada informasi detail", score: 0 }
-                ]
-            },
-            {
-                question: "Apa manfaat dari grafik tren data historis dalam SmartMaggot?",
-                answers: [
-                    { text: "Hanya untuk hiasan dashboard", score: 0 },
-                    { text: "Menganalisis pola dan mengoptimalkan kondisi budidaya", score: 10 },
-                    { text: "Mempercepat pertumbuhan maggot", score: 0 },
-                    { text: "Mengurangi biaya listrik", score: 0 }
+                question: "Mengapa kondisi kandang perlu dipantau secara rutin?",
+                answers: [{
+                        text: "Agar pertumbuhan maggot tetap optimal",
+                        score: 10
+                    },
+                    {
+                        text: "Agar kandang terlihat bagus",
+                        score: 0
+                    },
+                    {
+                        text: "Tidak ada alasan khusus",
+                        score: 0
+                    },
+                    {
+                        text: "Hanya untuk membersihkan kandang",
+                        score: 0
+                    }
                 ]
             },
             {
-                question: "Berapa lama data historis biasanya disimpan dalam SmartMaggot?",
-                answers: [
-                    { text: "Hanya 1 hari", score: 0 },
-                    { text: "Hingga beberapa bulan atau lebih", score: 10 },
-                    { text: "Hanya 1 jam", score: 0 },
-                    { text: "Data tidak disimpan", score: 0 }
+                question: "Apa itu SmartMaggot?",
+                answers: [{
+                        text: "Jenis maggot baru",
+                        score: 0
+                    },
+                    {
+                        text: "Sistem monitoring budidaya maggot berbasis IoT",
+                        score: 10
+                    },
+                    {
+                        text: "Pakan untuk maggot",
+                        score: 0
+                    },
+                    {
+                        text: "Mesin pencacah sampah",
+                        score: 0
+                    }
                 ]
             },
             {
-                question: "Apa tujuan laporan berkala dari SmartMaggot?",
-                answers: [
-                    { text: "Hiasan kantor", score: 0 },
-                    { text: "Evaluasi produktivitas dan identifikasi area perbaikan", score: 10 },
-                    { text: "Tidak ada tujuan khusus", score: 0 },
-                    { text: "Hanya untuk arsip", score: 0 }
+                question: "Mengapa SmartMaggot dibuat?",
+                answers: [{
+                        text: "Untuk menggantikan maggot",
+                        score: 0
+                    },
+                    {
+                        text: "Untuk membantu monitoring kandang secara otomatis",
+                        score: 10
+                    },
+                    {
+                        text: "Untuk mengurangi jumlah maggot",
+                        score: 0
+                    },
+                    {
+                        text: "Untuk membuat kandang lebih besar",
+                        score: 0
+                    }
                 ]
             },
             {
-                question: "Fitur apa yang membantu pengguna mengidentifikasi masalah dalam budidaya?",
-                answers: [
-                    { text: "Alert dan notifikasi otomatis", score: 10 },
-                    { text: "Background warna dashboard", score: 0 },
-                    { text: "Musik latar", score: 0 },
-                    { text: "Animasi grafiknya", score: 0 }
-                ]
-            },
-
-            // Penggunaan Praktis
-            {
-                question: "Bagaimana cara mengetahui apakah kandang maggot terlalu lembab?",
-                answers: [
-                    { text: "Dengan melihat dengan mata", score: 0 },
-                    { text: "Melalui nilai sensor kelembaban di dashboard SmartMaggot", score: 10 },
-                    { text: "Dengan merasakan teksturnya", score: 0 },
-                    { text: "Tidak bisa diketahui", score: 0 }
-                ]
-            },
-            {
-                question: "Apa yang harus dilakukan jika SmartMaggot mendeteksi suhu terlalu rendah?",
-                answers: [
-                    { text: "Tunggu saja hingga naik", score: 0 },
-                    { text: "Segera ambil tindakan berdasarkan alert sistem", score: 10 },
-                    { text: "Abaikan peringatan", score: 0 },
-                    { text: "Matikan sistem", score: 0 }
+                question: "Apa keuntungan monitoring realtime?",
+                answers: [{
+                        text: "Masalah dapat diketahui lebih cepat",
+                        score: 10
+                    },
+                    {
+                        text: "Membuat maggot langsung besar",
+                        score: 0
+                    },
+                    {
+                        text: "Tidak ada manfaat",
+                        score: 0
+                    },
+                    {
+                        text: "Mengurangi jumlah maggot",
+                        score: 0
+                    }
                 ]
             },
             {
-                question: "Kapan waktu terbaik untuk mengecek data sensor SmartMaggot?",
-                answers: [
-                    { text: "Hanya saat pagi hari", score: 0 },
-                    { text: "Secara berkala sepanjang hari untuk monitoring berkelanjutan", score: 10 },
-                    { text: "Hanya saat malam hari", score: 0 },
-                    { text: "Tidak perlu dicek", score: 0 }
+                question: "Sensor pada SmartMaggot digunakan untuk...",
+                answers: [{
+                        text: "Menghias kandang",
+                        score: 0
+                    },
+                    {
+                        text: "Mengukur kondisi lingkungan kandang",
+                        score: 10
+                    },
+                    {
+                        text: "Memberi makan maggot",
+                        score: 0
+                    },
+                    {
+                        text: "Menjual maggot",
+                        score: 0
+                    }
                 ]
             },
             {
-                question: "Bagaimana cara menyesuaikan parameter kontrol otomatis di SmartMaggot?",
-                answers: [
-                    { text: "Tidak bisa disesuaikan", score: 0 },
-                    { text: "Melalui pengaturan di dashboard sesuai kebutuhan", score: 10 },
-                    { text: "Dengan mengubah hardware fisik", score: 0 },
-                    { text: "Hanya bisa dilakukan oleh teknisi", score: 0 }
+                question: "Data sensor dapat dilihat melalui...",
+                answers: [{
+                        text: "Dashboard SmartMaggot",
+                        score: 10
+                    },
+                    {
+                        text: "Kertas catatan",
+                        score: 0
+                    },
+                    {
+                        text: "Televisi",
+                        score: 0
+                    },
+                    {
+                        text: "Radio",
+                        score: 0
+                    }
                 ]
             },
             {
-                question: "Apa indikasi yang menunjukkan maggot tidak nyaman dengan kondisi kandang?",
-                answers: [
-                    { text: "Suhu dan kelembaban tidak optimal", score: 10 },
-                    { text: "Tidak ada indikasi yang jelas", score: 0 },
-                    { text: "Warna kandang berubah", score: 0 },
-                    { text: "Ukuran kandang berubah", score: 0 }
-                ]
-            },
-
-            // Keuntungan & Manfaat
-            {
-                question: "Apa keuntungan utama menggunakan SmartMaggot dibanding cara tradisional?",
-                answers: [
-                    { text: "Lebih murah", score: 0 },
-                    { text: "Efisiensi, presisi, dan productivity yang lebih tinggi", score: 10 },
-                    { text: "Lebih mudah dipelajari", score: 0 },
-                    { text: "Tidak ada keuntungan", score: 0 }
-                ]
-            },
-            {
-                question: "Berapa presentase peningkatan produktivitas dengan SmartMaggot?",
-                answers: [
-                    { text: "10-20%", score: 0 },
-                    { text: "Bisa mencapai 50% atau lebih dengan optimasi", score: 10 },
-                    { text: "Tidak ada peningkatan", score: 0 },
-                    { text: "Malah menurun", score: 0 }
+                question: "Apa manfaat notifikasi pada SmartMaggot?",
+                answers: [{
+                        text: "Memberi peringatan saat kondisi tidak normal",
+                        score: 10
+                    },
+                    {
+                        text: "Menambah warna dashboard",
+                        score: 0
+                    },
+                    {
+                        text: "Mengganti sensor",
+                        score: 0
+                    },
+                    {
+                        text: "Memperbesar kandang",
+                        score: 0
+                    }
                 ]
             },
             {
-                question: "Siapa yang paling memerlukan SmartMaggot?",
-                answers: [
-                    { text: "Hanya peternakan skala besar", score: 0 },
-                    { text: "Skala apapun dari usaha rumahan hingga komersial", score: 10 },
-                    { text: "Hanya pelajar", score: 0 },
-                    { text: "Tidak ada yang memerlukan", score: 0 }
-                ]
-            },
-            {
-                question: "Bagaimana SmartMaggot membantu pembelajaran IoT?",
-                answers: [
-                    { text: "Tidak membantu", score: 0 },
-                    { text: "Sebagai studi kasus praktis implementasi IoT dalam pertanian", score: 10 },
-                    { text: "Hanya sebagai hiburan", score: 0 },
-                    { text: "Membuat lebih bingung", score: 0 }
-                ]
-            },
-            {
-                question: "Apa dampak penggunaan SmartMaggot terhadap efisiensi energi?",
-                answers: [
-                    { text: "Meningkat karena kontrol otomatis yang lebih presisi", score: 10 },
-                    { text: "Menurun drastis", score: 0 },
-                    { text: "Tidak ada dampak", score: 0 },
-                    { text: "Meningkat drastis", score: 0 }
-                ]
-            },
-
-            // Troubleshooting & Support
-            {
-                question: "Apa yang harus dilakukan jika sensor tidak mengirimkan data?",
-                answers: [
-                    { text: "Tidak perlu dikhawatirkan", score: 0 },
-                    { text: "Periksa koneksi, baterai, dan hubungi support", score: 10 },
-                    { text: "Langsung beli sensor baru", score: 0 },
-                    { text: "Abaikan masalah tersebut", score: 0 }
-                ]
-            },
-            {
-                question: "Bagaimana cara mengakses SmartMaggot dari mana saja?",
-                answers: [
-                    { text: "Hanya bisa dari kantor", score: 0 },
-                    { text: "Melalui aplikasi web atau mobile dengan login", score: 10 },
-                    { text: "Hanya lewat Bluetooth", score: 0 },
-                    { text: "Tidak bisa diakses dari jarak jauh", score: 0 }
-                ]
-            },
-            {
-                question: "Apa yang dilakukan jika kipas rusak?",
-                answers: [
-                    { text: "Tunggu hingga perbaikan sendiri", score: 0 },
-                    { text: "Switch ke mode MANUAL dan perbaiki segera", score: 10 },
-                    { text: "Abaikan saja", score: 0 },
-                    { text: "Berhenti budidaya", score: 0 }
-                ]
-            },
-            {
-                question: "Berapa waktu yang dibutuhkan untuk setup awal SmartMaggot?",
-                answers: [
-                    { text: "Lebih dari sebulan", score: 0 },
-                    { text: "Hanya beberapa jam hingga beberapa hari", score: 10 },
-                    { text: "Hanya 5 menit", score: 0 },
-                    { text: "Sangat lama, berbulan-bulan", score: 0 }
-                ]
-            },
-            {
-                question: "Apakah SmartMaggot memerlukan koneksi internet terus-menerus?",
-                answers: [
-                    { text: "Tidak sama sekali", score: 0 },
-                    { text: "Ya, untuk monitoring realtime dan sync data", score: 10 },
-                    { text: "Hanya saat morning", score: 0 },
-                    { text: "Hanya untuk login awal", score: 0 }
+                question: "Keuntungan utama SmartMaggot adalah...",
+                answers: [{
+                        text: "Monitoring lebih mudah, cepat, dan akurat",
+                        score: 10
+                    },
+                    {
+                        text: "Mengurangi jumlah sensor",
+                        score: 0
+                    },
+                    {
+                        text: "Menghilangkan kebutuhan pakan",
+                        score: 0
+                    },
+                    {
+                        text: "Mengganti peternak",
+                        score: 0
+                    }
                 ]
             }
         ];
 
-        let questions = [...allQuestions].sort(() => Math.random() - 0.5).slice(0, 30);
+        let questions = [...allQuestions].sort(() => Math.random() - 0.5).slice(0, 10);
         let currentQuestion = 0;
         let score = 0;
         let timer;
-        let timeLeft = 7;
+        let timeLeft = 5;
 
         document.getElementById("startQuiz").onclick = () => {
             document.getElementById("quizModal").classList.add("hidden");
@@ -668,7 +966,7 @@
         function loadQuestion() {
             const q = questions[currentQuestion];
             document.getElementById("feedback").classList.add("hidden");
-            document.getElementById("questionNumber").innerHTML = `Soal ${currentQuestion + 1}/30`;
+            document.getElementById("questionNumber").innerHTML = `Soal ${currentQuestion + 1}/10`;
             document.getElementById("questionText").innerHTML = q.question;
 
             let html = "";
@@ -688,12 +986,12 @@
 
         function startTimer() {
             clearInterval(timer);
-            timeLeft = 7;
+            timeLeft = 5;
 
             timer = setInterval(() => {
                 timeLeft--;
                 document.getElementById("timer").innerText = timeLeft;
-                document.getElementById("timeBar").style.width = (timeLeft / 7 * 100) + "%";
+                document.getElementById("timeBar").style.width = (timeLeft / 5 * 100) + "%";
 
                 if (timeLeft <= 0) {
                     clearInterval(timer);
@@ -737,7 +1035,7 @@
                 } else {
                     loadQuestion();
                 }
-            }, 3000);
+            }, 2000);
         }
 
         function showResult() {
@@ -747,22 +1045,30 @@
             let color = "";
             let iconClass = "";
 
-            if (score < 100) {
+           if (score <= 50) {
                 title = "Perlu Belajar Lebih Lanjut";
-                icon = '<i class="fas fa-grimace"></i>';
-                message = "Pelajari kembali tentang SmartMaggot untuk pemahaman yang lebih mendalam.";
+                icon = `
+                    <img src="/images/maggot2.png" class="w-24 h-24 mx-auto mb-3">
+                `;
+                message = "Pelajari kembali materi Maggot dan SmartMaggot agar pemahamanmu semakin baik.";
                 color = "text-orange-600";
                 iconClass = "text-orange-500";
-            } else if (score < 200) {
+
+            } else if (score <= 80) {
                 title = "Lumayan Baik";
-                icon = '<i class="fas fa-thumbs-up"></i>';
-                message = "Kamu sudah memahami konsep dasar SmartMaggot dengan cukup baik.";
+                icon = `
+                    <img src="/images/maggot3.png" class="w-24 h-24 mx-auto mb-3">
+                `;
+                message = "Kamu sudah memahami konsep dasar SmartMaggot dengan cukup baik. Terus tingkatkan pengetahuanmu!";
                 color = "text-blue-600";
                 iconClass = "text-blue-500";
+
             } else {
                 title = "SmartMaggot Expert";
-                icon = '<i class="fas fa-trophy"></i>';
-                message = "Luar biasa! Kamu adalah ahli SmartMaggot dan siap menggunakannya.";
+                icon = `
+                    <img src="/images/maggot.png" class="w-24 h-24 mx-auto mb-3">
+                `;
+                message = "Luar biasa! Kamu memahami materi Maggot dan SmartMaggot dengan sangat baik.";
                 color = "text-green-600";
                 iconClass = "text-green-500";
             }
