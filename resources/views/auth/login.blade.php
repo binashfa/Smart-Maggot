@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,140 +8,140 @@
 
     <script src="https://cdn.tailwindcss.com"></script>
 
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
     <style>
         body {
             font-family: 'Poppins', sans-serif;
         }
-    </style>
 
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+        .logo-float {
+            animation: float 4s ease-in-out infinite;
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-up {
+            animation: fadeUp .8s ease;
+        }
+    </style>
 </head>
 
-<body class="bg-[#f5f5f7] min-h-screen flex items-center justify-center p-6">
+<body class="min-h-screen relative overflow-hidden">
 
-    <div class="w-full max-w-md">
+    <!-- Background -->
+    <div class="absolute inset-0">
+        <img
+            src="{{ asset('images/bg-maggot.jpg') }}"
+            alt="Background"
+            class="w-full h-full object-cover">
 
-        <!-- Logo -->
-        <div class="text-center mb-8">
+        <div class="absolute inset-0 bg-black/5"></div>
+    </div>
 
-            <div class="w-20 h-20 bg-green-500 rounded-3xl mx-auto flex items-center justify-center shadow-lg">
+    <!-- Floating Particles -->
+    <div class="absolute top-20 left-32 w-4 h-4 rounded-full bg-white/40 animate-pulse"></div>
+    <div class="absolute top-40 right-40 w-3 h-3 rounded-full bg-white/50 animate-ping"></div>
+    <div class="absolute bottom-32 right-20 w-5 h-5 rounded-full bg-white/30 animate-pulse"></div>
 
-                <span class="text-white text-3xl font-bold">
-                    S
-                </span>
+
+    <!-- Main -->
+    <div class="relative z-30 min-h-screen flex items-center justify-center p-6">
+
+        <div class="w-full max-w-sm">
+
+            <!-- Logo -->
+            <div class="text-center">
+
+                <img
+                    src="{{ asset('images/logo-smartmaggot.png') }}"
+                    alt="SmartMaggot"
+                    class="w-36 md:w-48 lg:w-56 mx-auto logo-float drop-shadow-xl">
 
             </div>
 
-            <h1 class="text-4xl font-bold text-gray-800 mt-5">
-                SmartMaggot
-            </h1>
 
-            <p class="text-gray-400 mt-2">
-                IoT Monitoring System
-            </p>
+            <!-- Login Card -->
+            <div class="bg-white/75 backdrop-blur-xl border border-white/60 rounded-[40px] shadow-[0_20px_60px_rgba(0,0,0,0.15)] p-8 md:p-10 fade-up">
 
-        </div>
-
-        <!-- Card -->
-        <div class="bg-white rounded-[35px] shadow-xl p-10">
-
-            <!-- Header -->
-            <div class="mb-8 text-center">
-
-                <h2 class="text-3xl font-bold text-gray-800">
+                <h2 class="text-[20px] font-black text-center text-[#12557B]">
                     Welcome Back 👋
                 </h2>
 
-                <p class="text-gray-400 mt-2">
-                    Login untuk mengakses dashboard
+                <p class="text-center text-gray-500 text-[10px] mb-2">
+                    Login untuk mengakses dashboard SmartMaggot
                 </p>
+
+                @if ($errors->any())
+                <div class="mb-6 bg-red-50 border border-red-200 text-red-600 rounded-2xl p-4">
+                    {{ $errors->first() }}
+                </div>
+                @endif
+
+                <form action="{{ route('login') }}" method="POST">
+
+                    @csrf
+
+                    <div class="mt-4 mb-2">
+
+                        <input
+                            type="email"
+                            name="email"
+                            placeholder="Masukkan Email"
+                            class="w-full bg-white/80 border border-white rounded-2xl px-5 py-4 focus:outline-none focus:ring-2 focus:ring-[#10828D]"
+                            required>
+
+                    </div>
+
+                    <div class="mb-2">
+
+                        <input
+                            type="password"
+                            name="password"
+                            placeholder="Masukkan Password"
+                            class="w-full bg-white/80 border border-white rounded-2xl px-5 py-4 focus:outline-none focus:ring-2 focus:ring-[#10828D]"
+                            required>
+
+                    </div>
+
+                    <button
+                        type="submit"
+                        class="w-full bg-[#12557B] hover:bg-[#10828D] text-white font-bold py-4 rounded-full transition-all duration-300 hover:-translate-y-1 hover:shadow-xl mt-4">
+
+                        Login
+
+                    </button>
+
+                </form>
 
             </div>
 
-            <!-- Error -->
-            @if ($errors->any())
-
-                <div class="bg-red-100 border border-red-300 text-red-600 p-4 rounded-2xl mb-6">
-
-                    {{ $errors->first() }}
-
-                </div>
-
-            @endif
-
-            <!-- Form -->
-            <form action="{{ route('login') }}" method="POST">
-
-                @csrf
-
-                <!-- Email -->
-                <div class="mb-6">
-
-                    <label class="block text-gray-600 mb-2">
-                        Email
-                    </label>
-
-                    <input
-                        type="email"
-                        name="email"
-                        placeholder="Masukkan email"
-                        class="w-full border border-gray-200 rounded-2xl p-4 focus:outline-none focus:ring-2 focus:ring-green-500"
-                        required
-                    >
-
-                </div>
-
-                <!-- Password -->
-                <div class="mb-6">
-
-                    <label class="block text-gray-600 mb-2">
-                        Password
-                    </label>
-
-                    <input
-                        type="password"
-                        name="password"
-                        placeholder="Masukkan password"
-                        class="w-full border border-gray-200 rounded-2xl p-4 focus:outline-none focus:ring-2 focus:ring-green-500"
-                        required
-                    >
-
-                </div>
-
-                <!-- Remember -->
-                <div class="flex items-center justify-between mb-8">
-
-                    <label class="flex items-center gap-2 text-sm text-gray-500">
-
-                        <input type="checkbox" name="remember">
-
-                        Remember me
-
-                    </label>
-
-                    <a href="#" class="text-sm text-green-600 hover:underline">
-                        Forgot Password?
-                    </a>
-
-                </div>
-
-                <!-- Button -->
-                <button
-                    type="submit"
-                    class="w-full bg-green-500 hover:bg-green-600 transition text-white py-4 rounded-2xl font-semibold text-lg"
-                >
-                    Login
-                </button>
-
-            </form>
-
         </div>
-
-        <!-- Footer -->
-        <p class="text-center text-gray-400 text-sm mt-6">
-            SmartMaggot © 2026
-        </p>
 
     </div>
 
 </body>
+
 </html>

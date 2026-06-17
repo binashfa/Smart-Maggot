@@ -9,38 +9,77 @@ class DeviceCommandController extends Controller
 {
     public function update(Request $request)
     {
-        $request->validate([
-            'fan_status' => 'required|in:ON,OFF',
-        ]);
-
-        $command = DeviceCommand::updateOrCreate(
-            ['device_code' => 'ESP32-01'],
-            [
-                'fan_status' => $request->fan_status,
-                'mode' => 'manual',
-            ]
+        $device = DeviceCommand::firstOrCreate(
+            ['device_code' => 'ESP32-01']
         );
 
-        return back()->with('success', 'Fan berhasil diubah ke ' . $command->fan_status);
+        switch ($request->command) {
+
+            case 'auto_mode':
+                $device->mode = 'AUTO';
+                break;
+
+            case 'manual_mode':
+                $device->mode = 'MANUAL';
+                break;
+
+            case 'fan_on':
+                $device->fan_status = 'on';
+                break;
+
+            case 'fan_off':
+                $device->fan_status = 'off';
+                break;
+
+            case 'led_green_on':
+                $device->led_green_status = 'on';
+                break;
+
+            case 'led_green_off':
+                $device->led_green_status = 'off';
+                break;
+
+            case 'led_red_on':
+                $device->led_red_status = 'on';
+                break;
+
+            case 'led_red_off':
+                $device->led_red_status = 'off';
+                break;
+
+            case 'buzzer_on':
+                $device->buzzer_status = 'on';
+                break;
+
+            case 'buzzer_off':
+                $device->buzzer_status = 'off';
+                break;
+
+            case 'buzzer_mute':
+                $device->buzzer_status = 'off';
+                break;
+
+            case 'buzzer_unmute':
+                $device->buzzer_status = 'on';
+                break;
+        }
+
+        $device->command = $request->command;
+        $device->save();
+
+        return back();
     }
 
     public function latest()
     {
-        $command = DeviceCommand::where('device_code', 'ESP32-01')->latest()->first();
-
-        if (!$command) {
-            $command = DeviceCommand::create([
-                'device_code' => 'ESP32-01',
-                'fan_status' => 'OFF',
-                'mode' => 'manual',
-            ]);
-        }
+        $device = DeviceCommand::where(
+            'device_code',
+            'ESP32-01'
+        )->first();
 
         return response()->json([
-            'success' => true,
-            'device_code' => $command->device_code,
-            'fan_status' => $command->fan_status,
-            'mode' => $command->mode,
+            'mode' => $device?->mode ?? 'AUTO',
+            'command' => $device?->command ?? ''
         ]);
     }
 }

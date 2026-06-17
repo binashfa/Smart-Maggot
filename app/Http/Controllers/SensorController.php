@@ -64,10 +64,26 @@ class SensorController extends Controller
 
     public function monitoring()
     {
-        $sensors = SensorLog::with('device')
-            ->latest()
-            ->paginate(10);
+        $sensorLogs = SensorLog::latest()
+            ->paginate(9);
 
-        return view('superadmin.monitoring', compact('sensors'));
+        $latest = SensorLog::with('device')
+            ->latest()
+            ->first();
+
+        $online = false;
+
+        if ($latest) {
+            $online = now()->diffInMinutes($latest->created_at) < 2;
+        }
+
+        return view(
+            'operator.monitoring',
+            compact(
+                'sensorLogs',
+                'latest',
+                'online'
+            )
+        );
     }
 }
