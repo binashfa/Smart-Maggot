@@ -178,15 +178,104 @@ $mediaData = $chartData->pluck('media_moisture')->values();
             </div>
 
             <!-- REKOMENDASI -->
-            <div class="mt-4 rounded-2xl bg-white p-4">
+            <div class="mt-4 grid grid-cols-2 gap-3">
 
-                <p class="text-xs font-bold text-gray-500">
-                    Recommendation
+                <!-- REKOMENDASI -->
+                <div class="rounded-2xl bg-white p-4">
+
+                    <p class="text-xs font-bold text-gray-500">
+                        Recommendation
+                    </p>
+
+                    <p class="mt-2 text-sm font-semibold text-[#12557B]">
+                        {{ $recommendation }}
+                    </p>
+
+                </div>
+
+                <!-- PAKAN -->
+                <div class="rounded-3xl bg-white overflow-hidden shadow-sm">
+
+    <!-- Header -->
+    <div class="bg-[#A3E062] px-4 py-2 flex justify-between items-center">
+
+        <div>
+            <p class="text-[#12557B] text-[10px]">
+                Feeding Log
+            </p>
+
+            <p class="text-[#12557B] text-[12px] font-bold">
+                Pakan Hari Ini
+            </p>
+        </div>
+
+        <button
+            onclick="openFeedingModal()"
+            class="w-6 h-6 rounded-full bg-white text-[#A3E062] font-bold">
+            +
+        </button>
+
+    </div>
+
+    <!-- Content -->
+    <div class="p-3">
+
+        @if($lastFeeding)
+
+        <div class="flex justify-between items-center">
+
+            <div>
+                <p class="text-xs text-gray-400">
+                    Jenis Pakan
                 </p>
 
-                <p class="mt-2 text-sm font-semibold text-[#12557B]">
-                    {{ $recommendation }}
+                <h3 class="text-lg font-bold text-[#12557B]">
+                    {{ $lastFeeding->feed_type }}
+                </h3>
+            </div>
+
+            <div class="text-right">
+                <p class="text-xs text-gray-400">
+                    Berat
                 </p>
+
+                <h3 class="text-xl font-black text-[#10828D]">
+                    {{ $lastFeeding->weight }}
+                    <span class="text-sm">
+                        Kg
+                    </span>
+                </h3>
+            </div>
+
+        </div>
+
+        <div class="mt-2 flex justify-between items-center">
+
+            <span class="text-xs text-gray-400">
+                {{ \Carbon\Carbon::parse($lastFeeding->feeding_time)->format('d M Y') }}
+            </span>
+
+            <span class="bg-green-100 text-green-600 text-xs font-semibold px-3 py-1 rounded-full">
+                Sudah
+            </span>
+
+        </div>
+
+        @else
+
+        <div class="text-center py-6">
+
+            <p class="text-gray-400">
+                Belum ada data pakan
+            </p>
+
+        </div>
+
+        @endif
+
+    </div>
+
+</div>
 
             </div>
 
@@ -216,21 +305,98 @@ $mediaData = $chartData->pluck('media_moisture')->values();
     </div>
 </div>
 
+<div
+    id="feedingModal"
+    class="fixed inset-0 bg-black/40 hidden items-center justify-center z-50">
+
+    <div class="bg-white rounded-3xl p-6 w-[400px]">
+
+        <h2 class="text-xl font-black text-[#12557B] mb-4">
+            Tambah Pakan
+        </h2>
+
+        <form action="{{ route('feeding.store') }}" method="POST">
+            @csrf
+
+            <div class="mb-3">
+                <label class="text-sm font-semibold">
+                    Jenis Pakan
+                </label>
+
+                <input
+                    type="text"
+                    name="feed_type"
+                    class="w-full border rounded-xl p-2 mt-1"
+                    placeholder="Ampas Tahu">
+            </div>
+
+            <div class="mb-3">
+                <label class="text-sm font-semibold">
+                    Berat (Kg)
+                </label>
+
+                <input
+                    type="number"
+                    name="weight"
+                    class="w-full border rounded-xl p-2 mt-1"
+                    placeholder="2">
+            </div>
+
+            <div class="flex justify-end gap-2 mt-4">
+
+                <button
+                    type="button"
+                    onclick="closeFeedingModal()"
+                    class="px-4 py-2 rounded-xl bg-gray-200">
+                    Batal
+                </button>
+
+                <button
+                    type="submit"
+                    class="px-4 py-2 rounded-xl bg-[#12557B] text-white">
+                    Simpan
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
 
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <script id="chart-data" type="application/json">
-{!! json_encode([
-    'labels' => $chartLabels,
-    'temperature' => $temperatureData,
-    'humidity' => $humidityData,
-    'media' => $mediaData
-]) !!}
+    {!!json_encode([
+            'labels' => $chartLabels,
+            'temperature' => $temperatureData,
+            'humidity' => $humidityData,
+            'media' => $mediaData
+        ]) !!}
 </script>
 
 <script>
+    function openFeedingModal() {
+        document
+            .getElementById('feedingModal')
+            .classList.remove('hidden');
+
+        document
+            .getElementById('feedingModal')
+            .classList.add('flex');
+    }
+
+    function closeFeedingModal() {
+        document
+            .getElementById('feedingModal')
+            .classList.add('hidden');
+
+        document
+            .getElementById('feedingModal')
+            .classList.remove('flex');
+    }
+
     const chartData = JSON.parse(
         document.getElementById('chart-data').textContent
     );

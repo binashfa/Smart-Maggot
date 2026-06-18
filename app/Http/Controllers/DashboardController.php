@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use App\Models\SensorLog;
 use App\Models\DeviceCommand;
+use App\Models\Feeding;
 
 class DashboardController extends Controller
 {
@@ -39,6 +40,8 @@ class DashboardController extends Controller
             ->latest()
             ->first();
 
+        $lastFeeding = Feeding::latest('feeding_time')->first();
+
         // dashboard operator
         if ($role == 'operator') {
             return view(
@@ -47,7 +50,8 @@ class DashboardController extends Controller
                     'latest',
                     'online',
                     'chartData',
-                    'command'
+                    'command',
+                    'lastFeeding'
                 )
             );
         }

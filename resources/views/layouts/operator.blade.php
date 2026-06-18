@@ -79,6 +79,11 @@
                         <span class="text-sm menu-label">Devices</span>
                     </a>
 
+                    <a href="{{ route('feeding.index') }}" class="flex items-center gap-4 h-[56px] px-5 rounded-2xl transition {{ request()->is('feeding*') ? 'bg-[#12557B] text-white shadow-lg font-bold' : 'text-white hover:bg-[#12557B]/30' }}">
+                        <i class="fi fi-rr-wheat text-lg"></i>
+                        <span class="text-sm menu-label">Feeding</span>
+                    </a>
+
                 </div>
 
             </div>
@@ -116,9 +121,6 @@
 
         <!-- MAIN -->
         <main class="flex-1 overflow-y-auto">
-
-            <!-- TOPBAR -->
-
 
             <!-- PAGE CONTENT -->
             @yield('content')

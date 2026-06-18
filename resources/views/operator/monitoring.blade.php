@@ -5,8 +5,9 @@
 <div class="space-y-6">
 
     <div class="rounded-3xl bg-white p-6 shadow-md mb-2">
-        <div class="flex items-center justify-between ">
+        <div class="flex items-center justify-between">
 
+            <!-- LEFT -->
             <div>
                 <h1 class="text-3xl font-black text-[#12557B]">
                     Monitoring Sensor
@@ -17,34 +18,45 @@
                 </p>
             </div>
 
+            <!-- RIGHT -->
+            <div class="flex items-center gap-3">
 
-            <div class="stat-card" style="font-family:'Sora',sans-serif;background:#fff;border:.5px solid #e5e7eb;border-radius:12px;padding:.7rem .9rem;width:145px;position:relative;overflow:hidden;">
+                <a href="{{ route('monitoring.export.pdf') }}"
+                    class="flex items-center gap-2 rounded-xl bg-[#12557B] px-4 py-3 text-sm font-bold text-white hover:bg-[#0f4868] transition">
 
-                <div style="position:absolute;top:0;left:0;right:0;height:2px;background:#10828D;border-radius:12px 12px 0 0;"></div>
+                    <i class="fi fi-rr-file-pdf"></i>
+                    Export PDF
 
-                <p style="font-size:8px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#6b7280;margin:0 0 4px;">
-                    Total Data
-                </p>
+                </a>
 
-                <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:8px;">
+                <div class="bg-white border border-gray-200 rounded-xl px-4 py-3 min-w-[150px]">
 
-                    <div>
-                        <h2 style="font-size:22px;font-weight:800;color:#10828D;line-height:1;margin:0;">
-                            {{ $sensorLogs->total() }}
-                        </h2>
+                    <p class="text-[10px] font-semibold uppercase tracking-widest text-gray-400">
+                        Total Data
+                    </p>
 
-                        <p style="font-size:9px;color:#9ca3af;margin-top:2px;">
-                            Sensor logs
-                        </p>
-                    </div>
+                    <div class="flex items-center justify-between mt-1">
 
-                    <div style="width:38px;height:38px;border-radius:12px;background:#E1F5EE;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-                        <i class="fi fi-rr-database" style="font-size:18px;color:#10828D;"></i>
+                        <div>
+                            <h2 class="text-2xl font-black text-[#10828D] leading-none">
+                                {{ $sensorLogs->total() }}
+                            </h2>
+
+                            <p class="text-[10px] text-gray-400 mt-1">
+                                Sensor Logs
+                            </p>
+                        </div>
+
+                        <div class="w-10 h-10 rounded-xl bg-[#E1F5EE] flex items-center justify-center">
+                            <i class="fi fi-rr-database text-[#10828D] text-lg"></i>
+                        </div>
+
                     </div>
 
                 </div>
 
             </div>
+
         </div>
 
     </div>
